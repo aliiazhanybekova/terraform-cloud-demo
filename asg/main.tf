@@ -87,3 +87,10 @@ resource "aws_security_group" "lb-firewall" {
 }
 
 
+resource "aws_route53_record" "blog" {
+  zone_id = "Z0675869E4RGXPJDC32I"
+  name    = "blog"
+  type    = "CNAME"
+  ttl     = 5
+  records = [aws_elb.bar.dns_name]
+}
