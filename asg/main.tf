@@ -24,7 +24,7 @@ module "asg" {
 
 resource "aws_elb" "bar" {
   name = "foobar-terraform-elbs"
-  subnets = data.terraform_remote_state.vpc.outputs.public_subnets
+  availability_zones = data.terraform_remote_state.vpc.outputs.azs
    security_groups = [
     aws_security_group.lb-firewall.id
   ]
